@@ -36,9 +36,8 @@ export function Header() {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-          {/* Oculta/mostra um SVG diferente ou adiciona filtros se necessário, mas o logo SVG se adapta bem */}
-          <div className={`transition-all duration-500 ${scrolled ? 'scale-90' : 'scale-100'}`}>
-            <Logo width="160" height="160" className="drop-shadow-lg h-12 w-auto" />
+          <div className={`transition-all duration-500 bg-white rounded-xl shadow-md p-2 ${scrolled ? 'scale-90' : 'scale-100'}`}>
+            <Logo className="h-[72px] w-auto" />
           </div>
         </Link>
 
