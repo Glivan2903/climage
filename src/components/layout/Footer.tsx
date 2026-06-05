@@ -8,8 +8,8 @@ export function Footer() {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {/* Brand & About */}
         <div>
-          <Link href="/" className="block mb-6 hover:opacity-90 transition-opacity">
-            <Logo width="160" height="auto" />
+          <Link href="/" className="inline-block mb-6 hover:opacity-90 transition-opacity bg-white/90 p-3 rounded-xl shadow-lg">
+            <Logo width={180} height={60} />
           </Link>
           <p className="mb-6 leading-relaxed">
             Uma clínica moderna, confiável, tecnológica e preparada para cuidar da saúde dos pacientes com excelência.
