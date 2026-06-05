@@ -43,7 +43,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-6">
           {links.map((link) => (
             <Link
               key={link.name}
@@ -58,22 +58,45 @@ export function Header() {
               }`}></span>
             </Link>
           ))}
-          <Link
-            href="https://api.whatsapp.com/send?phone=5579988789969"
-            target="_blank"
-            className={`px-7 py-2.5 rounded-full font-bold transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${
-              scrolled 
-                ? 'bg-accent text-white hover:bg-[#b06a85] hover:shadow-accent/30' 
-                : 'bg-white text-primary hover:bg-gray-50 hover:shadow-white/20'
-            }`}
-          >
-            Agendar Exame
-          </Link>
+
+          <div className={`flex items-center gap-3 border-l pl-6 ml-2 transition-colors duration-300 ${scrolled ? 'border-primary/20' : 'border-white/20'}`}>
+            <Link
+              href="/resultados"
+              className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 border ${
+                scrolled
+                  ? 'border-primary text-primary hover:bg-primary/5'
+                  : 'border-white/50 text-white hover:bg-white/10'
+              }`}
+            >
+              Resultado Exames
+            </Link>
+            <Link
+              href="/empresa"
+              className={`px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 border ${
+                scrolled
+                  ? 'border-primary text-primary hover:bg-primary/5'
+                  : 'border-white/50 text-white hover:bg-white/10'
+              }`}
+            >
+              Acesso Empresa
+            </Link>
+            <Link
+              href="https://api.whatsapp.com/send?phone=5579988789969"
+              target="_blank"
+              className={`px-6 py-2.5 rounded-full font-bold transition-all duration-300 shadow-lg hover:-translate-y-0.5 ${
+                scrolled 
+                  ? 'bg-accent text-white hover:bg-[#b06a85] hover:shadow-accent/30' 
+                  : 'bg-white text-primary hover:bg-gray-50 hover:shadow-white/20'
+              }`}
+            >
+              Agendar
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden p-2 rounded-full transition-colors ${
+          className={`xl:hidden p-2 rounded-full transition-colors ${
             scrolled ? 'text-primary hover:bg-primary/5' : 'text-white hover:bg-white/10'
           }`}
           onClick={() => setIsOpen(!isOpen)}
@@ -85,25 +108,42 @@ export function Header() {
 
       {/* Mobile Nav Overlay */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl border-t border-gray-100 shadow-2xl py-6 px-6 flex flex-col gap-5 animate-in slide-in-from-top-2 duration-300">
+        <div className="xl:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-2xl border-t border-gray-100 shadow-2xl py-6 px-6 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-300">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-foreground font-semibold text-lg border-b border-gray-100 pb-3 hover:text-primary transition-colors hover:pl-2"
+              className="text-foreground font-semibold text-lg border-b border-gray-100 pb-2 hover:text-primary transition-colors hover:pl-2"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-          <Link
-            href="https://api.whatsapp.com/send?phone=5579988789969"
-            target="_blank"
-            className="bg-accent text-white px-6 py-4 rounded-full font-bold text-center mt-4 shadow-lg hover:bg-[#b06a85] transition-colors"
-            onClick={() => setIsOpen(false)}
-          >
-            Agendar Exame no WhatsApp
-          </Link>
+          
+          <div className="flex flex-col gap-3 mt-2">
+            <Link
+              href="/resultados"
+              className="border-2 border-primary text-primary px-6 py-3 rounded-full font-bold text-center hover:bg-primary/5 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Resultado Exames
+            </Link>
+            <Link
+              href="/empresa"
+              className="border-2 border-primary text-primary px-6 py-3 rounded-full font-bold text-center hover:bg-primary/5 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Acesso Empresa
+            </Link>
+            <Link
+              href="https://api.whatsapp.com/send?phone=5579988789969"
+              target="_blank"
+              className="bg-accent text-white px-6 py-4 rounded-full font-bold text-center shadow-lg hover:bg-[#b06a85] transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Agendar Exame no WhatsApp
+            </Link>
+          </div>
         </div>
       )}
     </header>
